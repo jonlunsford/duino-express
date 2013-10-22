@@ -1,0 +1,37 @@
+/* /////////////////////////////////////////////////////
+
+UTILS
+General CSS utilities and SASS mixins
+
+///////////////////////////////////////////////////// */
+
+
+.hide-text {
+  text-indent: -9999px;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* /////////////////////////////////////////////////////
+
+GOOD COMPASS MIXINS TO KNOW ABOUT
+
+image-width($image)
+image-height($image)
+image-url($image)
+
+replace-text($img, $x, $y)
+hide-text() 
+  @import "compass/typography/text/replacement";
+  
+inline-block
+  @import "compass/css3/inline-block";
+
+opacity($opacity)
+  @import "compass/css3/opacity"
+
+///////////////////////////////////////////////////// */

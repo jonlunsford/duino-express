@@ -1,0 +1,14 @@
+{
+  "name": "duino-express",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.2",
+    "jade": "*",
+    "connect-coffee-script": "latest",
+    "johnny-five": "~0.7.4"
+  }
+}

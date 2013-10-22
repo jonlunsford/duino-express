@@ -1,0 +1,23 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/main.css')
+  body(class=bodyClass)
+    header.main-header
+      nav.main-nav
+        h1 
+          a(href="/") Home Bot 1.0
+        ul
+          li
+            a(href="/knock") Knock
+          li
+            a(href="/tones") Tones
+
+    .main-wrap  
+      i.icon.icon-nav Nav
+      block content
+
+    script(type="text/javascript", src="/js/lib/modernizer.min.js")
+    script(type="text/javascript", src="/js/lib/jquery.js")
+    script(type="text/javascript", src="/js/main.js")

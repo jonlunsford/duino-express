@@ -1,0 +1,121 @@
+/* /////////////////////////////////////////////////////
+
+MODULES
+// Use class names for all modules
+// Use class names for all non-semantic children (divs, spans, etc). 
+// Child class names prefixed by module name (ex: news-item-title)
+// Keep nesting to a minimum
+// Put a comment description before each module
+
+///////////////////////////////////////////////////// */
+
+.main-title {
+  margin: 0;
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+  font-size: 49px;
+  padding-top: 200px;
+  line-height: 50px;
+}
+
+#main-alert {
+  height: 100%;
+  @extend .main-title;
+
+  &.negative {
+    background: rgb(216, 71, 71);
+  }
+
+  &.positive {
+     background: rgb(71, 216, 123);
+  }
+
+  &.info {
+    background: rgb(71, 141, 216);
+  }
+
+  &.warning {
+    background: rgb(224, 224, 41);
+  }
+}
+
+#keys {
+  height: 100%;
+  margin: 0 auto;
+
+  a {
+    text-decoration: none;
+    display: block;
+    float: left;
+    width: 14.28%;
+    text-align: center;
+    height: 100%;
+    color: #fff;
+    font-weight: bold;
+    padding-top: 200px;
+    font-size: 50px;
+    @include transition(all .1s ease-out);
+
+    &:active,
+    &:hover {
+      background: #013E61 !important;
+    }
+
+    &.a {
+      background: #00A3FF;
+    }
+
+    &.b {
+      background: #0093E6;
+    }
+
+    &.c {
+      background: #0480C7;
+    }
+
+    &.d {
+      background: #056FAC;
+    }
+
+    &.e {
+      background: #036096;
+    }
+
+    &.f {
+      background: #004F7C;
+    }
+
+    &.g {
+      background: #01466D;
+    }
+  }
+}
+
+/* Icons
+--------------------------------------------- */
+
+.icon {
+  display: inline-block;
+  @extend .hide-text;
+}
+
+.icon-nav {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  opacity: .5;
+  @include misc-sprite("icon-nav");
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+.icon-bolt {
+  margin: 30px auto;
+  display: block;
+  @include misc-sprite("icon-bolt");
+}
