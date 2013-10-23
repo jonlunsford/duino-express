@@ -3,6 +3,9 @@ $ ->
   DoorDuino.init()
   KeysDuino.init()
 
+Global =
+  appUrl: "http://localhost:3000"
+
 UI =
   init: ->
     @initNavigation()
@@ -20,16 +23,17 @@ DoorDuino =
   messageDisplay: "#main-alert"
 
   init: ->
-    # todo replace with socket.io
-    # @initPusher()
+    @initIo()
 
-  initPusher: -> 
-    pusher = new Pusher "64df34f71aa202a8ec63"
-    channel = pusher.subscribe "notification"
-    channel.bind "notify", (data) -> 
-      DoorDuino.sendMessage data.message, data.type
+  initIo: -> 
+    socket = io.connect(Global.appUrl)
+    socket.on "connect", (data) ->
+      $(".module-connect").remove()
+    socket.on "notify", (data) ->
+      console.log data
+      DoorDuino.setMessage(data.message, data.type)
 
-  sendMessage: (message, type) ->
+  setMessage: (message, type) ->
     $display = $(DoorDuino.messageDisplay)
     $display.text message
     $display.prop "class", type

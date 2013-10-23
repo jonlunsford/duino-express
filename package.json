@@ -9,6 +9,7 @@
     "express": "3.4.2",
     "jade": "*",
     "connect-coffee-script": "latest",
-    "johnny-five": "~0.7.4"
+    "johnny-five": "~0.7.4",
+    "socket.io": "~0.9.16"
   }
 }

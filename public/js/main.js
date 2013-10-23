@@ -1,11 +1,15 @@
 (function() {
-  var DoorDuino, KeysDuino, UI;
+  var DoorDuino, Global, KeysDuino, UI;
 
   $(function() {
     UI.init();
     DoorDuino.init();
     return KeysDuino.init();
   });
+
+  Global = {
+    appUrl: "http://localhost:3000"
+  };
 
   UI = {
     init: function() {
@@ -26,16 +30,21 @@
 
   DoorDuino = {
     messageDisplay: "#main-alert",
-    init: function() {},
-    initPusher: function() {
-      var channel, pusher;
-      pusher = new Pusher("64df34f71aa202a8ec63");
-      channel = pusher.subscribe("notification");
-      return channel.bind("notify", function(data) {
-        return DoorDuino.sendMessage(data.message, data.type);
+    init: function() {
+      return this.initIo();
+    },
+    initIo: function() {
+      var socket;
+      socket = io.connect(Global.appUrl);
+      socket.on("connect", function(data) {
+        return $(".module-connect").remove();
+      });
+      return socket.on("notify", function(data) {
+        console.log(data);
+        return DoorDuino.setMessage(data.message, data.type);
       });
     },
-    sendMessage: function(message, type) {
+    setMessage: function(message, type) {
       var $display;
       $display = $(DoorDuino.messageDisplay);
       $display.text(message);
